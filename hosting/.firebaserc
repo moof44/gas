@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "general-accounting-system": {
+      "hosting": {
+        "general-accounting-system": [
+          "general-accounting-system"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "general-accounting-system"
+  }
+}
