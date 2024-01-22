@@ -1,15 +1,18 @@
-import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Auth, user } from '@angular/fire/auth';
+import { Store } from '@ngrx/store';
 import { LayoutModule } from '../shared/layout';
-import { Firestore } from '@angular/fire/firestore';
-import { Auth, getAuth, signInWithEmailAndPassword, user } from '@angular/fire/auth';
+import { authActions } from '../store/app';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, RouterOutlet, LayoutModule
+    CommonModule,
+    LayoutModule,
+    RouterOutlet
   ],
   providers: [
   ],
@@ -17,10 +20,10 @@ import { Auth, getAuth, signInWithEmailAndPassword, user } from '@angular/fire/a
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  firestore: Firestore = inject(Firestore);
   title = 'general-accounting-system';
   private auth: Auth = inject(Auth);
   private user$ = user(this.auth)
+  private store = inject(Store);
   //private auth:Auth = getAuth(); 
 
   ngOnInit(){
@@ -30,17 +33,9 @@ export class AppComponent {
 
   // private function
   private _signin(){
-    signInWithEmailAndPassword(this.auth, "jireh.padua@gmail.com", "jirehpadua")
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log('user', userCredential);
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+    this.store.dispatch(authActions.login(
+      {email: 'jireh.padua@gmail.com', password:'jirehpadua'}
+    ))
   }
 
   private _eventListeners(){
@@ -50,7 +45,6 @@ export class AppComponent {
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         console.log('user', user);
-        // ...
       } else {
         // User is signed out
         // ...

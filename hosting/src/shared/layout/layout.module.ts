@@ -4,11 +4,13 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonComponentModule } from '../common-component';
+import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule
     , CommonComponentModule
+    , RouterOutlet
   ],
   declarations: [
     HeaderComponent,
