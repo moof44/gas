@@ -5,7 +5,7 @@ import { pageActions } from '../../../store/app/page';
 @Component({
   selector: 'app-add-edit-income',
   templateUrl: './add-edit-income.component.html',
-  styleUrls: ['./add-edit-income.component.scss']
+  styleUrls: ['./add-edit-income.component.scss'],
 })
 export class AddEditIncomeComponent implements OnInit {
   private store = inject(Store);

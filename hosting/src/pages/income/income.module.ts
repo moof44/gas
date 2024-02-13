@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddEditIncomeComponent, ListIncomeComponent } from '.';
+import { CommonComponentModule } from '../../shared';
 
 const components = [
   AddEditIncomeComponent,
@@ -9,13 +10,14 @@ const components = [
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    CommonComponentModule
   ],
   declarations: [
     components
   ],
   exports: [
     components
-  ]
+  ] 
 })
 export class IncomeModule { }

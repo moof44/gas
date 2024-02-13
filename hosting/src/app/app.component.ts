@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
 import { Store } from '@ngrx/store';
-import { LayoutModule } from '../shared/layout';
 import { authActions } from '../store/app';
 import { RouterOutlet } from '@angular/router';
+import { LayoutModule } from '../shared';
+import { IncomeModule } from '../pages';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     CommonModule,
     LayoutModule,
-    RouterOutlet
+    RouterOutlet,
+    IncomeModule,
   ],
   providers: [
   ],

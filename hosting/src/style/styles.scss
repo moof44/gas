@@ -1,0 +1,45 @@
+@use 'variable';
+
+/* You can add global styles to this file, and also import other style files */
+body{
+    overflow-x: hidden;
+}
+body, div, span{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+h1, h2, h3, h4, h5, span, p, a, button, input, label, select, option, textarea{
+    font-family: 'Lalezar', system-ui;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.row, .row2{
+    display: flex;
+    padding: 0rem 0.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+}
+
+.row2{
+    margin-top:1rem;
+}
+
+
+.right-align{
+    justify-content: flex-end;
+}
+
+common-input, input{
+    width: -webkit-fill-available;
+}
+
+.margin-top{
+    margin-top:1rem;
+}

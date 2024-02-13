@@ -3,24 +3,26 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
-import { CommonComponentModule } from '../common-component';
 import { RouterOutlet } from '@angular/router';
+import { LabelModule } from '../label/label.module';
+
+const components = [
+  HeaderComponent,
+  BodyComponent,
+  FooterComponent,
+];
 
 @NgModule({
   imports: [
     CommonModule
-    , CommonComponentModule
-    , RouterOutlet
+    ,RouterOutlet
+    ,LabelModule
   ],
   declarations: [
-    HeaderComponent,
-    BodyComponent,
-    FooterComponent
+    components
   ],
   exports: [
-    HeaderComponent,
-    BodyComponent,
-    FooterComponent
+    components
   ]
 })
 export class LayoutModule { }

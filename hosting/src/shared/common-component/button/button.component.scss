@@ -1,0 +1,19 @@
+button{
+    display: flex;
+    height: 37px;
+    padding: 2px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 16px;
+    border: 0px;
+    background: var(--Primary, #1B8FFA);
+
+    color: #FFF;
+    font-family: Lalezar;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}

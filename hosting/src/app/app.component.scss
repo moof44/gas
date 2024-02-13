@@ -1,0 +1,23 @@
+@use 'variable' as v;
+body-section{
+    //width: v.$width;
+    //place-self: center;
+}
+
+.main-container{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+}
+
+::ng-deep app-root{
+    display:flex;
+    flex-direction: column;
+}
+
+footer-section{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+}

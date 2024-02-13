@@ -4,34 +4,23 @@
     align-items: flex-start;
     align-self: stretch;
 
-    .row{
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        align-self: stretch;
+    label{
+        color: #000;
+        font-family: Lalezar;
+        font-size: 1.5rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 
-        label{
-            width: 69px;
-            height: 24px;
-
-            color: #000;
-            font-family: Lalezar;
-            font-size: 17px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-        }
-
-        input{
-            box-sizing: border-box;
-            height: 37px;
-            width: 300px;
-            border-radius: 15px;
-            border: 1px solid #000;
-            background: #F6F6F6;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            padding:4px;
-
-        }
+    input{
+        box-sizing: border-box;
+        height: 1.5rem;
+        width: 300px;
+        border-radius: 15px;
+        border: 1px solid #000;
+        background: #F6F6F6;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        padding:4px;
     }
 }

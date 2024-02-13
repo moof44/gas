@@ -1,0 +1,8 @@
+<input 
+  #input 
+  [type]="type" 
+  (change)="change(input.value)"
+  (keyup)="change(input.value)"
+  [ngClass]="cssClass"
+  step=".01"
+>

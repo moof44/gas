@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { pageSelectors } from '../../../store/app/page/page.selector';
-import { pageFeature } from '../../../store/app';
 import { Observable, of } from 'rxjs';
+import { pageFeature } from '../../../store/app';
 
 @Component({
   selector: 'header-title',
