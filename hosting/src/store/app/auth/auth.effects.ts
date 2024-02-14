@@ -21,7 +21,9 @@ export class AuthEffects {
             console.log('test', login)
             return signInWithEmailAndPassword(this.auth, login.email, login.password)
             .then((credential) => {
-                return authActions.loginSuccess(credential.user);
+                console.log('user', credential.user);
+                const {uid, displayName, isAnonymous} = credential.user;
+                return authActions.loginSuccess({uid, displayName, isAnonymous});
             }).catch((error) => {
                 return authActions.loginFailure({error: error.message});
             })

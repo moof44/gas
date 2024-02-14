@@ -11,7 +11,10 @@ const initialState:AuthState = {
 
 const authRed = createReducer(
   initialState,
-  on(auth.loginSuccess, (state, user) => ({...state, user, isLoggedIn:true})),
+  on(auth.loginSuccess, (state, user) => {
+    const {uid, displayName, isAnonymous} = user;
+    return {...state, uid, displayName, isAnonymous}
+  }),
   on(auth.logout, (state) => ({...state, user:null, isLoggedIn:false})),
 );
 

@@ -1,4 +1,10 @@
 export interface AuthState {
-    user: any | null;
+    user: UserInfo | null;
     isLoggedIn: boolean;
+}
+
+export interface UserInfo{
+    uid: string,
+    displayName: string | null,
+    isAnonymous: boolean,
 }
