@@ -16,6 +16,9 @@ import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { AuthEffects, authFeature } from '../store/app';
 import { pageFeature } from '../store/app';
+import { incomeFeature } from '../pages/income/store/income.selector';
+import { IncomeEffects } from '../pages/income/store/income.effects';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -60,7 +63,11 @@ export const appConfig: ApplicationConfig = {
         name: pageFeature.name,
         reducer: pageFeature.reducer,
     }),
-    provideEffects(AuthEffects),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+    provideState({
+        name: incomeFeature.name,
+        reducer: incomeFeature.reducer,
+    }),
+    provideEffects(AuthEffects, IncomeEffects),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }), provideAnimationsAsync()
 ],
 };

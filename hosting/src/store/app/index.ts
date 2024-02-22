@@ -9,3 +9,5 @@ export * from './page/page.interface';
 export * from './page/page.reducer';
 //export * from './page/page.selector';
 //export * from './page/page.effects';
+
+export * from '../../pages/income/store/income.actions';

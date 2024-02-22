@@ -1,4 +1,5 @@
 Pending to do:
 
-1. Start creating data from database ?
-2. 
+1. Start creating data for database ? - INCOME MODULE - DONE
+    - Redo - Edit input field to use angular material
+2. Start showing data to list page - INCOME MODULE

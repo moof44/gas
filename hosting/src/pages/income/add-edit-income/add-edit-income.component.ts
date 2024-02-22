@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { pageActions } from '../../../store/app/page';
+import { incomeActions } from '../../../store/app';
 
 @Component({
   selector: 'app-add-edit-income',
@@ -8,17 +10,37 @@ import { pageActions } from '../../../store/app/page';
   styleUrls: ['./add-edit-income.component.scss'],
 })
 export class AddEditIncomeComponent implements OnInit {
-  private store = inject(Store);
+  // public
+  fg = new FormGroup({
+    //id: new FormControl('', {nonNullable: true}),
+    source: new FormControl('', {nonNullable: true}),
+    amount: new FormControl(0, {nonNullable: true}),
+    date: new FormControl(new Date(), {nonNullable: true}),
+    userId: new FormControl('', {nonNullable: true}),
+    user: new FormControl('', {nonNullable: true})
+  })
+
+  // private
+  private _store = inject(Store);
 
 
   constructor() { }
 
+  // lifecycle
   ngOnInit() {
-    this.store.dispatch(pageActions.setInitialPageState({
+    this._store.dispatch(pageActions.setInitialPageState({
       url: '/income/add-edit-income',
       page: 'income',
       title: 'Add/Edit Income'
     }))
   }
+
+  // public method
+  onSubmit() {
+    const income = this.fg.value;
+    this._store.dispatch(incomeActions.save( income ));
+  }
+
+
 
 }

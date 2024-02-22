@@ -12,8 +12,7 @@ const initialState:AuthState = {
 const authRed = createReducer(
   initialState,
   on(auth.loginSuccess, (state, user) => {
-    const {uid, displayName, isAnonymous} = user;
-    return {...state, uid, displayName, isAnonymous}
+    return {...state, ...user}
   }),
   on(auth.logout, (state) => ({...state, user:null, isLoggedIn:false})),
 );
@@ -21,5 +20,4 @@ const authRed = createReducer(
 export const authFeature = createFeature({
   name: 'auth',
   reducer: authRed,
-}
-);
+});
