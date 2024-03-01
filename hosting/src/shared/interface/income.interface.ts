@@ -10,4 +10,12 @@ export interface Income {
 }
 
 export interface IncomeState extends EntityState<Income>{
+    event: IncomeEvents,
+}
+
+export enum IncomeEvents {
+    none = 'None',
+    addCompleted = 'Income Add Completed',
+    updateCompleted = 'Income Update Completed',
+    deleteCompleted = 'Income Delete Completed',
 }

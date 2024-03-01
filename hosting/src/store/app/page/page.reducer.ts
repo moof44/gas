@@ -1,12 +1,13 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { PageApp } from './page.interface';
+import { PageApp, PageMode, PageNames } from './page.interface';
 import { pageActions } from './page.actions';
 
 
 const initialState:PageApp = {
     url: '',
-    page: 'home',
+    page: PageNames.income,
     title: 'Home',
+    mode: PageMode.none,
 };
 
 const pageRed = createReducer(

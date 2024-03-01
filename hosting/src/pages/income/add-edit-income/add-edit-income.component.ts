@@ -1,15 +1,15 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { pageActions } from '../../../store/app/page';
-import { incomeActions } from '../../../store/app';
+import { Router } from '@angular/router';
+import { IncomeService } from '../service/income.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-edit-income',
   templateUrl: './add-edit-income.component.html',
   styleUrls: ['./add-edit-income.component.scss'],
 })
-export class AddEditIncomeComponent implements OnInit {
+export class AddEditIncomeComponent implements OnInit, OnDestroy {
   // public
   fg = new FormGroup({
     //id: new FormControl('', {nonNullable: true}),
@@ -21,26 +21,45 @@ export class AddEditIncomeComponent implements OnInit {
   })
 
   // private
-  private _store = inject(Store);
-
+  private _router = inject(Router);
+  private _income = inject(IncomeService);
+  private _subs = new Subscription();
 
   constructor() { }
 
+
+  ngOnDestroy(): void {
+    this._subs.unsubscribe();
+  }
+
   // lifecycle
   ngOnInit() {
-    this._store.dispatch(pageActions.setInitialPageState({
-      url: '/income/add-edit-income',
-      page: 'income',
-      title: 'Add/Edit Income'
-    }))
+    this._income.initAddEditIncome();
+    this._eventListener();
   }
 
   // public method
   onSubmit() {
-    const income = this.fg.value;
-    this._store.dispatch(incomeActions.save( income ));
+    const income = {...this.fg.value, ...{date:this.fg.value.date?.toDateString()}};
+
+    this._income.addIncome(income);
+  }
+  onCancel() {
+    this._router.navigate(['/income/list']);
   }
 
-
+  // private method
+  private _eventListener(){
+    this._subs.add(
+      this._income.event$.subscribe((event)=>{
+        if(
+          event === 'Income Add Completed' 
+          || event === 'Income Update Completed'
+        ){
+          this._router.navigate(['/income/list']);
+        }
+      })
+    )
+  }
 
 }

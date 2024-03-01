@@ -1,16 +1,24 @@
 @use 'variable' as v;
 
 .header{
-    display: flex;
-    width: 100%;
-    height: 64px;
-    padding: 8px 10px 0px 10px;
-    align-items: flex-start;
-    gap: 10px;
-    flex-shrink: 0;
+    // display: flex;
+    // width: 100%;
+    // height: 64px;
+    // padding: 8px 10px 0px 10px;
+    // align-items: flex-start;
+    gap: 0.5rem;
+    // flex-shrink: 0;
     background: var(--Primary, #1B8FFA);
-    justify-content: center;
-    box-sizing: border-box;
+    // justify-content: center;
+    // box-sizing: border-box;
+    span{
+        font-size: 20px; 
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: #FFF;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
 
     &__main-container{
         display: flex;

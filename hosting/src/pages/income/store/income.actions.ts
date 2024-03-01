@@ -11,5 +11,9 @@ export const incomeActions = createActionGroup({
         'SaveSuccess': props<Income>(),
         'Fetch List': emptyProps(),
         'Fetch List Success': props<{income: Income[]}>(),
+        'Select Income': props<{selectedId: string}>(),
+        'Income Add Completed': emptyProps(),
+        'Income Update Completed': emptyProps(),
+        'Init Event': emptyProps(),
     }
 })

@@ -1,4 +1,4 @@
-import { createActionGroup, props } from '@ngrx/store';
+import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { InitialPageState } from './page.interface';
 
 
@@ -8,5 +8,6 @@ export const pageActions = createActionGroup({
     source: 'Page',
     events: {
         'Set Initial Page State': props<InitialPageState>(),
+        'Income Add Completed': emptyProps(),
     }
 })

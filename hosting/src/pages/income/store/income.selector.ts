@@ -14,6 +14,7 @@ export const incomeFeature = createFeature({
     reducer: incomeReducer,
     extraSelectors: ({selectEntities, selectIds, selectIncomeState}) => ({
       ...incomeAdapter.getSelectors(selectIncomeState),
+      selectSelectedIncome: (state: any) => selectEntities(state)[state.selectedId],  
       
     })
   });

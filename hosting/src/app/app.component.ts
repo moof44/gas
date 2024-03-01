@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Auth, user } from '@angular/fire/auth';
-import { Store } from '@ngrx/store';
-import { authActions } from '../store/app';
 import { RouterOutlet } from '@angular/router';
-import { LayoutModule } from '../shared';
+import { Store } from '@ngrx/store';
 import { IncomeModule } from '../pages';
+import { LayoutModule } from '../shared';
+import { authActions } from '../store/app';
 
 @Component({
   selector: 'app-root',
